@@ -1,0 +1,84 @@
+/* Import Poppins font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* Base styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Card styling */
+.card {
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1) !important;
+}
+
+/* Form controls */
+.form-control, .form-select {
+    border: 1.5px solid #e0e0e0;
+    padding: 0.75rem;
+    font-size: 0.95rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.1);
+}
+
+/* Labels */
+.form-label {
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: #344767;
+}
+
+/* Submit button */
+.btn-primary {
+    padding: 0.8rem 2rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    background: linear-gradient(135deg, #0d6efd, #0099ff);
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3);
+    background: linear-gradient(135deg, #0099ff, #0d6efd);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .card-body {
+        padding: 1.5rem !important;
+    }
+}
+
+/* Custom date and time input styling */
+input[type="date"], input[type="time"] {
+    cursor: pointer;
+}
+
+/* Error state */
+.form-control.is-invalid {
+    border-color: #dc3545;
+    background-image: none;
+}
+
+/* Success state */
+.form-control.is-valid {
+    border-color: #198754;
+    background-image: none;
+}
