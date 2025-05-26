@@ -97,13 +97,12 @@ $result = $stmt->get_result();
                             <div class="table-responsive">
                                 <table class="table table-hover align-middle">
                                     <thead class="table-light">
-                                        <tr>                                            <th>Date</th>
+                                        <tr>                                            
+                                            <th>Date</th>
                                             <th>Time</th>
                                             <th>Pet Name</th>
                                             <th>Species</th>
                                             <th>Treatment/Service</th>
-                                            <th>Status</th>
-                                            <th class="text-end">Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -117,21 +116,13 @@ $result = $stmt->get_result();
                                                 </td>
                                                 <td><?php echo htmlspecialchars($row['species']); ?></td>
                                                 <td><?php echo htmlspecialchars($row['treatment']); ?></td>
-                                                <td>
-                                                    <?php
-                                                    $appointmentDate = strtotime($row['appointment_date']);
-                                                    $today = strtotime(date('Y-m-d'));
-                                                    if ($appointmentDate < $today) {
-                                                        echo '<span class="badge rounded-pill bg-secondary">Completed</span>';
-                                                    } elseif ($appointmentDate == $today) {
-                                                        echo '<span class="badge rounded-pill bg-primary">Today</span>';
-                                                    } else {
-                                                        echo '<span class="badge rounded-pill bg-info text-dark">Upcoming</span>';
-                                                    }
-                                                    ?>
-                                                </td>                                                <td class="text-end">
+                                                <td class="text-end">
                                                     <div class="d-flex gap-2 justify-content-end">
-                                                        <?php if ($appointmentDate >= $today): ?>
+                                                        <?php 
+                                                        $appointmentDate = strtotime($row['appointment_date']);
+                                                        $today = strtotime(date('Y-m-d'));
+                                                        if ($appointmentDate >= $today): 
+                                                        ?>
                                                             <a href="edit_appointment.php?id=<?php echo $row['id']; ?>" 
                                                                class="btn btn-sm btn-outline-primary rounded-3">
                                                                 <i class="bi bi-pencil me-1"></i>Edit

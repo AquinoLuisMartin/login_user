@@ -8,30 +8,26 @@ if (!isset($_SESSION['user_id'])) {
 // Database connection
 $mysqli = new mysqli("localhost", "root", "", "user_db");
 
-// Check connection
+
 if ($mysqli->connect_error) {
     die("Connection failed: " . $mysqli->connect_error);
 }
 
-// Get appointment ID from URL
-$appointment_id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+
+$appointment_id = isset($_GET['appointment_id']) ? (int)$_GET['appointment_id'] : 0;
 $user_id = $_SESSION['user_id'];
 
-// Fetch appointment details
-$stmt = $mysqli->prepare("SELECT * FROM appointments WHERE id = ? AND user_id = ?");
+
+$stmt = $mysqli->prepare("SELECT * FROM appointments WHERE appointment_id = ? AND user_id = ?");
 $stmt->bind_param("ii", $appointment_id, $user_id);
 $stmt->execute();
 $result = $stmt->get_result();
 
-if ($result->num_rows === 0) {
-    $_SESSION['error_message'] = "Appointment not found or unauthorized access.";
-    header('Location: check_appointment.php');
-    exit;
-}
+
 
 $appointment = $result->fetch_assoc();
 
-// Check if appointment is in the past
+
 if (strtotime($appointment['appointment_date']) < strtotime(date('Y-m-d'))) {
     $_SESSION['error_message'] = "Cannot edit past appointments.";
     header('Location: check_appointment.php');
@@ -64,7 +60,7 @@ if (strtotime($appointment['appointment_date']) < strtotime(date('Y-m-d'))) {
                         </div>
 
                         <form action="process_edit_appointment.php" method="POST" class="needs-validation" novalidate>
-                            <input type="hidden" name="appointment_id" value="<?php echo $appointment['id']; ?>">
+                            <input type="hidden" name="appointment_id" value="<?php echo $appointment['appointment_id']; ?>">
                             
                             <div class="mb-3">
                                 <label for="pet_name" class="form-label">Pet Name</label>
