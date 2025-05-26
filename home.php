@@ -215,7 +215,7 @@ $first_name = htmlspecialchars($_SESSION['first_name'] ?? 'User');
                                 <i class="bi bi-calendar-check fs-5 text-primary"></i>
                             </div>
                             <div>
-                                <h6 class="fw-semibold mb-1">Rehabilitation</h6>
+                                <h6 class="fw-semibold mb-1">Clinic Services</h6>
                                 <div class="text-muted small">Dr. Claudia Alves</div>
                             </div>
                         </div>

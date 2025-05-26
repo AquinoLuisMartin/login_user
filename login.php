@@ -2,7 +2,7 @@
 $message = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Connect to the database
+    
     $mysqli = new mysqli("localhost", "root", "", "user_db");
 
     
@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     
     if (isset($_POST['signup'])) {
-        // Signup logic
+        
         $first_name = trim($_POST['first_name'] ?? '');
         $last_name = trim($_POST['last_name'] ?? '');
         $email = trim($_POST['email'] ?? '');
@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $messageType = "error";
         }
     } elseif (isset($_POST['login'])) {
-        // Login logic
+        
         $email = trim($_POST['email'] ?? '');
         $password = $_POST['password'] ?? '';
         if (!empty($email) && !empty($password)) {
