@@ -32,7 +32,7 @@ $result = $stmt->get_result();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Check Appointments</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="styles_check_app.css">
 </head>
@@ -124,17 +124,13 @@ $result = $stmt->get_result();
                                                         $today = strtotime(date('Y-m-d'));
                                                         if ($appointmentDate >= $today): 
                                                         ?>
-                                                            <a href="edit_appointment.php?id=<?php echo $row['id']; ?>" 
-                                                               class="btn btn-sm btn-outline-primary rounded-3">
-                                                                <i class="bi bi-pencil me-1"></i>Edit
+                                                        <i class="bi bi-pencil me-1"></i>Edit
                                                             </a>
                                                             <button type="button" 
                                                                     class="btn btn-sm btn-outline-danger rounded-3 delete-appointment"
                                                                     data-bs-toggle="modal"
                                                                     data-bs-target="#deleteModal"
-                                                                    data-id="<?php echo $row['id']; ?>"
-                                                                    data-pet="<?php echo htmlspecialchars($row['pet_name'], ENT_QUOTES); ?>"
-                                                                    data-date="<?php echo htmlspecialchars(date('M d, Y', strtotime($row['appointment_date'])), ENT_QUOTES); ?>">
+                                                                    >
                                                                 <i class="bi bi-trash me-1"></i>Delete
                                                             </button>
                                                         <?php endif; ?>
