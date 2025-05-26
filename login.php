@@ -5,12 +5,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Connect to the database
     $mysqli = new mysqli("localhost", "root", "", "user_db");
 
-    // Check connection
+    
     if ($mysqli->connect_error) {
         die("Connection failed: " . $mysqli->connect_error);
     }
 
-    // Determine which form was submitted
+    
     if (isset($_POST['signup'])) {
         // Signup logic
         $first_name = trim($_POST['first_name'] ?? '');
@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $message = "Passwords do not match";
                 $messageType = "error";
             } else {
-                // Check if email already exists
+                
                 $stmt = $mysqli->prepare("SELECT user_id FROM users WHERE email = ?");
                 $stmt->bind_param("s", $email);
                 $stmt->execute();
@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $stmt->bind_result($user_id, $hashed_password, $first_name);
                 $stmt->fetch();
                 if (password_verify($password, $hashed_password)) {
-                    // Successful login
+                    
                     session_start();
                     $_SESSION['user_id'] = $user_id;
                     $_SESSION['first_name'] = $first_name;
@@ -100,7 +100,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>    <section class="main">
+<body>    
+    <section class="main">
         <div class="form_wrapper">
             <input type="radio" class="radio" name="radio" id="login" checked />
             <input type="radio" class="radio" name="radio" id="signup" />
@@ -131,7 +132,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <a href="#forgot" class="forgot">Forgot password?</a>
 
                     <button type="submit" class="btn" name="login">Login</button>
-                </form>                <form method="post" class="form_fild signup_form" id="signupForm" novalidate>
+                </form>                
+                <form method="post" class="form_fild signup_form" id="signupForm" novalidate>
                     <div class="input_group">
                         <input type="text" class="input" placeholder="First Name" name="first_name" required 
                             pattern="[A-Za-z]+" title="Please enter a valid first name (letters only)" />

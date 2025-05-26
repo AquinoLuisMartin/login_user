@@ -5,19 +5,19 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-// Include database configuration
+
 $base_path = dirname($_SERVER['PHP_SELF']);
 $base_path = str_replace('\\', '/', $base_path);
 
-// Database connection
+
 $mysqli = new mysqli("localhost", "root", "", "user_db");
 
-// Check connection
+
 if ($mysqli->connect_error) {
     die("Connection failed: " . $mysqli->connect_error);
 }
 
-// Fetch user's appointments
+
 $user_id = $_SESSION['user_id'];
 $sql = "SELECT * FROM appointments WHERE user_id = ? ORDER BY appointment_date, appointment_time";
 $stmt = $mysqli->prepare($sql);
@@ -42,7 +42,7 @@ $result = $stmt->get_result();
             <div class="col-md-12">
                 <div class="card border-0 shadow-sm rounded-4">
                     <div class="card-body p-4">
-                        <!-- Add back button -->                        
+                                              
                         <div class="mb-4 d-flex justify-content-between align-items-center">
                             <a href="<?php echo $base_path; ?>/home.php" class="btn btn-outline-secondary rounded-3">
                                 <i class="bi bi-arrow-left"></i> Back to Dashboard
@@ -51,7 +51,8 @@ $result = $stmt->get_result();
                             <a href="<?php echo $base_path; ?>/appointment.php" class="btn btn-primary rounded-3">
                                 <i class="bi bi-plus-lg"></i> New Appointment
                             </a>
-                        </div>                        <?php if (isset($_SESSION['success_message']) || isset($_SESSION['error_message'])): ?>
+                        </div>                        
+                        <?php if (isset($_SESSION['success_message']) || isset($_SESSION['error_message'])): ?>
                             <div class="row justify-content-center mb-4">
                                 <div class="col-md-12">
                                     <?php if (isset($_SESSION['success_message'])): ?>
@@ -154,9 +155,10 @@ $result = $stmt->get_result();
                     </div>
                 </div>
             </div>
-        </div>    </div>
+        </div>    
+    </div>
 
-    <!-- Delete Confirmation Modal -->
+    
     <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -182,7 +184,7 @@ $result = $stmt->get_result();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Handle delete button clicks
+        
         const deleteButtons = document.querySelectorAll('.delete-appointment');
         deleteButtons.forEach(button => {
             button.addEventListener('click', function() {

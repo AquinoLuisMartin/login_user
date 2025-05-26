@@ -17,8 +17,11 @@ $first_name = htmlspecialchars($_SESSION['first_name'] ?? 'User');
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="styles_home.css">
 </head>
-<body>    <div class="sidebar bg-white shadow-sm border-end d-flex flex-column" style="height: 100vh; overflow-y: auto;">
-        <div class="logo p-4">            <div class="d-flex align-items-center">                <div class="bg-primary bg-opacity-10 p-2 rounded-3 me-3">
+<body>    
+    <div class="sidebar bg-white shadow-sm border-end d-flex flex-column" style="height: 100vh; overflow-y: auto;">
+        <div class="logo p-4">            
+            <div class="d-flex align-items-center">               
+                 <div class="bg-primary bg-opacity-10 p-2 rounded-3 me-3">
                     <i class="bi bi-hospital fs-4 text-primary"></i>
                 </div>
                 <div>
@@ -43,7 +46,8 @@ $first_name = htmlspecialchars($_SESSION['first_name'] ?? 'User');
                     <a href="#" class="nav-link text-dark rounded-3">
                         <i class="bi bi-list-check me-2"></i> Services
                     </a>
-                </li>                <li class="nav-item">
+                </li>                
+                <li class="nav-item">
                     <a href="check_appointment.php" class="nav-link text-dark rounded-3">
                         <i class="bi bi-clipboard-check me-2"></i> Check Appointment
                     </a>
@@ -67,7 +71,8 @@ $first_name = htmlspecialchars($_SESSION['first_name'] ?? 'User');
                     <a href="login.php" class="nav-link text-dark rounded-3">
                         <i class="bi bi-box-arrow-right me-2"></i> Sign Out
                     </a>
-                </li>                <li class="nav-item">
+                </li>                
+                <li class="nav-item">
                     <a href="#" class="nav-link text-dark rounded-3">
                         <i class="bi bi-question-circle me-2"></i> Help
                     </a>
@@ -80,7 +85,9 @@ $first_name = htmlspecialchars($_SESSION['first_name'] ?? 'User');
                 </a>
             </div>
         </div>
-    </div><div class="main-content bg-light">        <header class="navbar navbar-expand bg-white shadow-sm mb-4 px-4 py-3">
+    </div>
+    <div class="main-content bg-light">        
+        <header class="navbar navbar-expand bg-white shadow-sm mb-4 px-4 py-3">
             <div class="container-fluid px-0">
                 <form class="d-flex w-25">
                     <input type="search" placeholder="Search Here" class="form-control rounded-pill border-0 bg-light">
@@ -93,11 +100,12 @@ $first_name = htmlspecialchars($_SESSION['first_name'] ?? 'User');
             </div>
         </header>
 
-        <div class="container-fluid px-4">            <section class="card border-0 bg-primary text-white rounded-4 shadow-sm mb-4">
+        <div class="container-fluid px-4">            
+            <section class="card border-0 bg-primary text-white rounded-4 shadow-sm mb-4">
                 <div class="card-body p-4 p-md-5">
                     <div class="row align-items-center">
                         <div class="col-12">
-                            <h2 class="display-6 fw-bold mb-4">Comprehensive Health Service Offered Here</h2>
+                            <h2 class="display-6 fw-bold mb-4">Pet Services and Veterinary Clinic</h2>
                             <div class="d-flex gap-3 flex-wrap">
                                 <button class="btn btn-light px-4 py-2 fw-semibold">Get Started</button>
                                 <button class="btn btn-outline-light px-4 py-2 fw-semibold">Learn More</button>
@@ -105,14 +113,15 @@ $first_name = htmlspecialchars($_SESSION['first_name'] ?? 'User');
                         </div>
                     </div>
                 </div>
-            </section><section class="mb-5">
+            </section>
+            <section class="mb-5">
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <h5 class="fw-semibold m-0">Features</h5>
                     <button class="btn btn-light rounded-pill px-3 py-2 text-primary">
-                        <i class="bi bi-grid me-2"></i>View All
-                    </button>
+                        <i class="bi bi-grid me-2"></i>View All</button>
                 </div>
-                <div class="row g-4">                    <div class="col-md-3 col-sm-6">
+                <div class="row g-4">                    
+                    <div class="col-md-3 col-sm-6">
                         <div class="card border-0 rounded-4 shadow-sm hover-lift h-100">
                             <div class="card-body text-center p-4">
                                 <div class="icon-box d-inline-flex align-items-center justify-content-center bg-primary bg-opacity-10 rounded-3 p-3 mb-3">
@@ -157,8 +166,10 @@ $first_name = htmlspecialchars($_SESSION['first_name'] ?? 'User');
                         </div>
                     </div>
                 </div>
-            </section><aside class="right-panel bg-white shadow-sm p-4">
-            <!-- Schedule -->
+            </section>
+            
+            <aside class="right-panel bg-white shadow-sm p-4">
+            
             <div class="schedule mb-5">
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <h6 class="mb-0">Schedule</h6>
@@ -183,10 +194,8 @@ $first_name = htmlspecialchars($_SESSION['first_name'] ?? 'User');
 
             <div class="appointments mb-5">
                 <div class="d-flex justify-content-between align-items-center mb-4">
-                    <div></div>
                     <a href="appointment.php" class="btn btn-primary btn-sm rounded-3">
-                        <i class="bi bi-plus-lg"></i> New Appointment
-                    </a>
+                        <i class="bi bi-plus-lg"></i> New Appointment</a>
                 </div>
                 <div class="appointment-cards">
                     <div class="appointment-card bg-primary text-white rounded-4 border-0 p-3 mb-3">
@@ -196,7 +205,7 @@ $first_name = htmlspecialchars($_SESSION['first_name'] ?? 'User');
                             </div>
                             <div>
                                 <h6 class="fw-semibold mb-1">Lifestyle Counseling</h6>
-                                <div class="text-white-50 small">Dr. Claudia Alves</div>
+                                <div class="text-white-50 small">Dr. Rajesh Khan</div>
                             </div>
                         </div>
                     </div>
@@ -218,18 +227,20 @@ $first_name = htmlspecialchars($_SESSION['first_name'] ?? 'User');
                             </div>
                             <div>
                                 <h6 class="fw-semibold mb-1">Preventive Care</h6>
-                                <div class="text-muted small">Dr. Claudia Alves</div>
+                                <div class="text-muted small">Dr. Niel Hermogenes</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Messages -->            <div class="messages">                <div class="d-flex justify-content-between align-items-center mb-4">
+            <div class="messages">                
+                <div class="d-flex justify-content-between align-items-center mb-4">
                     <h6 class="mb-0">Message</h6>
                 </div>
                     <div class="card bg-primary text-white rounded-4 border-0 p-4">
-                    <div class="d-flex justify-content-between align-items-start mb-4">                    <div>
+                    <div class="d-flex justify-content-between align-items-start mb-4">                    
+                        <div>
                             <h5 class="fw-semibold mb-1">Dr. Alfredo Torres</h5>
                             <div class="text-white-50 small">1 Minute Ago</div>
                         </div>
@@ -243,7 +254,7 @@ $first_name = htmlspecialchars($_SESSION['first_name'] ?? 'User');
         </aside>
     </div>
 
-    <!-- Bootstrap JS and Popper.js -->
+    
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.min.js"></script>
 </body>

@@ -5,10 +5,10 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-// Database connection
+
 $mysqli = new mysqli("localhost", "root", "", "user_db");
 
-// Check connection
+
 if ($mysqli->connect_error) {
     die("Connection failed: " . $mysqli->connect_error);
 }
@@ -29,26 +29,25 @@ if ($mysqli->connect_error) {
             <div class="col-md-8">
                 <div class="card border-0 shadow-sm rounded-4">
                     <div class="card-body p-4">
-                        <!-- Add back button -->
+                        
                         <div class="mb-4">
                             <a href="home.php" class="btn btn-outline-secondary rounded-3">
-                                <i class="bi bi-arrow-left"></i> Back to Dashboard
-                            </a>
+                                <i class="bi bi-arrow-left"></i> Back to Dashboard</a>
                         </div>
                         
                         <h3 class="text-center mb-4">Schedule Pet Appointment</h3>
                         
                         <form action="process_appointment.php" method="POST">
-                            <!-- Add a hidden input for user_id -->
+                           
                             <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id']; ?>">
 
-                            <!-- Owner Information -->
+                            
                             <div class="mb-3">
                                 <label for="owner_name" class="form-label">Owner Name</label>
                                 <input type="text" class="form-control" id="owner_name" name="owner_name" required>
                             </div>
 
-                            <!-- Pet Information -->
+                          
                             <div class="mb-3">
                                 <label for="pet_name" class="form-label">Pet Name</label>
                                 <input type="text" class="form-control" id="pet_name" name="pet_name" required>
@@ -76,7 +75,7 @@ if ($mysqli->connect_error) {
                                 <input type="number" class="form-control" id="age" name="age" required>
                             </div>
 
-                            <!-- Appointment Details -->
+                            
                             <div class="row mb-4">
                                 <div class="col-md-6">
                                     <label for="date" class="form-label">Preferred Date</label>
@@ -88,7 +87,7 @@ if ($mysqli->connect_error) {
                                 </div>
                             </div>
 
-                            <!-- Treatment Information -->
+                            
                             <div class="mb-4">
                                 <label for="treatment" class="form-label">Treatment/Service Needed</label>
                                 <textarea class="form-control" id="treatment" name="treatment" rows="3" placeholder="Please describe the treatment or service needed for your pet" required></textarea>

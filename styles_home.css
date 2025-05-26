@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
 
-/* Custom Bootstrap Styles */
+
 :root {
     --bs-primary: #0d6efd;
     --bs-primary-rgb: 13, 110, 253;
@@ -13,7 +13,7 @@ body {
     color: #222;
 }
 
-/* Schedule Cards */
+
 .schedule-items {
     display: flex;
     gap: 0.5rem;
@@ -43,7 +43,7 @@ body {
     border-left-color: rgba(0, 0, 0, 0.1);
 }
 
-/* Sidebar */
+
 .sidebar {
     position: fixed;
     left: 0;
@@ -145,10 +145,10 @@ body {
     box-shadow: 0 0.25rem 1rem rgba(var(--bs-primary-rgb), 0.25);
 }
 
-/* Main Content */
+
 .main-content {
     margin-left: 280px;
-    margin-right: 340px; /* Added margin for right panel */
+    margin-right: 340px; 
     padding: 24px;
     background: #f5f6fa;
     min-height: 100vh;
@@ -671,7 +671,7 @@ header {
     background: linear-gradient(135deg, var(--bs-primary), #4d94ff) !important;
 }
 
-/* Custom improvements */
+
 .shadow-hover {
     transition: all 0.3s ease;
 }
@@ -681,7 +681,7 @@ header {
     box-shadow: 0 0.5rem 1rem rgba(var(--bs-primary-rgb), 0.15) !important;
 }
 
-/* Responsive Design */
+
 @media (max-width: 1400px) {
     .main-content {
         margin-right: 40px;

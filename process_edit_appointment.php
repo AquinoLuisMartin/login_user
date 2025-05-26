@@ -5,20 +5,20 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-// Database connection
+
 $mysqli = new mysqli("localhost", "root", "", "user_db");
 
-// Check connection
+
 if ($mysqli->connect_error) {
     die("Connection failed: " . $mysqli->connect_error);
 }
 
-// Handle Delete
+
 if (isset($_POST['delete_appointment'])) {
     $appointment_id = $_POST['appointment_id'];
     $user_id = $_SESSION['user_id'];
     
-    // Make sure the appointment belongs to the user
+    
     $stmt = $mysqli->prepare("DELETE FROM appointments WHERE id = ? AND user_id = ?");
     $stmt->bind_param("ii", $appointment_id, $user_id);
     
@@ -32,7 +32,7 @@ if (isset($_POST['delete_appointment'])) {
     exit;
 }
 
-// Handle Update
+
 if (isset($_POST['update_appointment'])) {
     $appointment_id = $_POST['appointment_id'];
     $user_id = $_SESSION['user_id'];
@@ -45,7 +45,7 @@ if (isset($_POST['update_appointment'])) {
     $time = $mysqli->real_escape_string($_POST['time']);
     $treatment = $mysqli->real_escape_string($_POST['treatment']);
 
-    // Update appointment data
+    
     $stmt = $mysqli->prepare("UPDATE appointments SET 
         owner_name = ?, 
         pet_name = ?, 

@@ -5,7 +5,7 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-// Database connection
+
 $mysqli = new mysqli("localhost", "root", "", "user_db");
 
 
@@ -112,7 +112,7 @@ if (strtotime($appointment['appointment_date']) < strtotime(date('Y-m-d'))) {
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Form validation
+        
         (function() {
             'use strict';
             var forms = document.querySelectorAll('.needs-validation');
