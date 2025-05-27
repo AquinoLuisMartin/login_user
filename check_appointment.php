@@ -106,76 +106,70 @@ $result = $stmt->get_result();
                                             <th>Treatment/Service</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <?php while ($row = $result->fetch_assoc()): ?>
-                                            <tr>
-                                                <td><?php echo date('M d, Y', strtotime($row['appointment_date'])); ?></td>
-                                                <td><?php echo date('h:i A', strtotime($row['appointment_time'])); ?></td>
-                                                <td>
-                                                    <div class="fw-semibold"><?php echo htmlspecialchars($row['pet_name']); ?></div>
-                                                    <small class="text-muted">Owner: <?php echo htmlspecialchars($row['owner_name']); ?></small>
-                                                </td>
-                                                <td><?php echo htmlspecialchars($row['species']); ?></td>
-                                                <td><?php echo htmlspecialchars($row['treatment']); ?></td>
-                                                <td class="text-end">
-                                                    <div class="d-flex gap-2 justify-content-end">
-                                                        <?php 
-                                                        $appointmentDate = strtotime($row['appointment_date']);
-                                                        $today = strtotime(date('Y-m-d'));
-                                                        if ($appointmentDate >= $today): 
-                                                        ?>
-                                                        <i class="bi bi-pencil me-1"></i>Edit
+                                        <tbody>
+                                            <?php while ($row = $result->fetch_assoc()): ?>
+                                                <tr>
+                                                    <td><?php echo date('M d, Y', strtotime($row['appointment_date'])); ?></td>
+                                                    <td><?php echo date('h:i A', strtotime($row['appointment_time'])); ?></td>
+                                                    <td>
+                                                        <div class="fw-semibold"><?php echo htmlspecialchars($row['pet_name']); ?></div>
+                                                        <small class="text-muted">Owner: <?php echo htmlspecialchars($row['owner_name']); ?></small>
+                                                    </td>
+                                                    <td><?php echo htmlspecialchars($row['species']); ?></td>
+                                                    <td><?php echo htmlspecialchars($row['treatment']); ?></td>
+                                                    <td class="text-end">
+                                                        <div class="d-flex gap-2 justify-content-end">
+                                                            <a href="#" class="btn btn-sm btn-outline-primary rounded-3 edit-appointment">
+                                                                <i class="bi bi-pencil me-1"></i>Edit
                                                             </a>
-                                                            <button type="button" 
-                                                                    class="btn btn-sm btn-outline-danger rounded-3 delete-appointment"
-                                                                    data-bs-toggle="modal"
-                                                                    data-bs-target="#deleteModal"
-                                                                    >
-                                                                <i class="bi bi-trash me-1"></i>Delete
-                                                            </button>
-                                                        <?php endif; ?>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        <?php endwhile; ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        <?php else: ?>
-                            <div class="text-center py-5">
-                                <i class="bi bi-calendar-x text-muted fs-1"></i>
-                                <p class="text-muted mt-3">No appointments found.</p>
-                                <a href="appointment.php" class="btn btn-primary">Schedule an Appointment</a>
-                            </div>
-                        <?php endif; ?>
+                                                                <button type="button" 
+                                                                        class="btn btn-sm btn-outline-danger rounded-3 delete-appointment"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#deleteModal"
+                                                                        >
+                                                                    <i class="bi bi-trash me-1"></i>Delete
+                                                                </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            <?php endwhile; ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            <?php else: ?>
+                                <div class="text-center py-5">
+                                    <i class="bi bi-calendar-x text-muted fs-1"></i>
+                                    <p class="text-muted mt-3">No appointments found.</p>
+                                    <a href="appointment.php" class="btn btn-primary">Schedule an Appointment</a>
+                                </div>
+                            <?php endif; ?>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>    
-    </div>
+            </div>    
+        </div>
 
     
     <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header border-0 pb-0">
-                    <h5 class="modal-title" id="deleteModalLabel">Confirm Deletion</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>Are you sure you want to delete the appointment for <strong id="petName"></strong> on <span id="appointmentDate"></span>?</p>
-                    <p class="text-danger mb-0"><small><i class="bi bi-exclamation-triangle-fill"></i> This action cannot be undone.</small></p>
-                </div>
-                <div class="modal-footer border-0 pt-0">
-                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
-                    <form action="process_delete_appointment.php" method="POST" class="d-inline">
-                        <input type="hidden" name="appointment_id" id="appointmentId">
-                        <button type="submit" class="btn btn-danger">Delete Appointment</button>
-                    </form>
-                </div>
+                 <form method="POST" action="process_delete_appointment.php">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteModalLabel">Delete Appointment</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+             <div class="modal-body">
+                    <input type="hidden" name="appointment_id" id="delete-appointment-id">
+                    <p>Are you sure you want to delete this appointment?</p>
+             </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-danger">Delete</button>
             </div>
-        </div>
-    </div>
+         </form>
+     </div>
+  </div>
+</div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
