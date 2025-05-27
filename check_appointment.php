@@ -120,7 +120,8 @@ $result = $stmt->get_result();
                                                     <td><?php echo htmlspecialchars($row['treatment']); ?></td>
                                                     <td class="text-end">
                                                         <div class="d-flex gap-2 justify-content-end">
-                                                            <a href="#" class="btn btn-sm btn-outline-primary rounded-3 edit-appointment">
+                                                            <a href="edit_appointment.php" class="btn btn-sm btn-outline-primary rounded-3 edit-appointment">
+                                                            
                                                                 <i class="bi bi-pencil me-1"></i>Edit
                                                             </a>
                                                                 <button type="button" 
@@ -128,6 +129,7 @@ $result = $stmt->get_result();
                                                                         data-bs-toggle="modal"
                                                                         data-bs-target="#deleteModal"
                                                                         >
+                                                                        
                                                                     <i class="bi bi-trash me-1"></i>Delete
                                                                 </button>
                                                         </div>

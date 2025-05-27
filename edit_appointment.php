@@ -28,11 +28,11 @@ $result = $stmt->get_result();
 $appointment = $result->fetch_assoc();
 
 
-if (strtotime($appointment['appointment_date']) < strtotime(date('Y-m-d'))) {
-    $_SESSION['error_message'] = "Cannot edit past appointments.";
-    header('Location: check_appointment.php');
-    exit;
-}
+//if (strtotime($appointment['appointment_date']) < strtotime(date('Y-m-d'))) {
+   // $_SESSION['error_message'] = "Cannot edit past appointments.";
+   // header('Location: check_appointment.php');
+    //exit;
+//}
 ?>
 
 <!DOCTYPE html>
@@ -64,39 +64,33 @@ if (strtotime($appointment['appointment_date']) < strtotime(date('Y-m-d'))) {
                             
                             <div class="mb-3">
                                 <label for="pet_name" class="form-label">Pet Name</label>
-                                <input type="text" class="form-control" id="pet_name" name="pet_name" 
-                                       value="<?php echo htmlspecialchars($appointment['pet_name']); ?>" required>
+                                <input type="text" class="form-control" id="pet_name" name="pet_name">
                             </div>
 
                             <div class="mb-3">
                                 <label for="species" class="form-label">Species</label>
-                                <input type="text" class="form-control" id="species" name="species" 
-                                       value="<?php echo htmlspecialchars($appointment['species']); ?>" required>
+                                <input type="text" class="form-control" id="species" name="species">
                             </div>
 
                             <div class="mb-3">
                                 <label for="owner_name" class="form-label">Owner Name</label>
-                                <input type="text" class="form-control" id="owner_name" name="owner_name" 
-                                       value="<?php echo htmlspecialchars($appointment['owner_name']); ?>" required>
+                                <input type="text" class="form-control" id="owner_name" name="owner_name">
                             </div>
 
                             <div class="mb-3">
                                 <label for="treatment" class="form-label">Treatment/Service</label>
-                                <input type="text" class="form-control" id="treatment" name="treatment" 
-                                       value="<?php echo htmlspecialchars($appointment['treatment']); ?>" required>
+                                <input type="text" class="form-control" id="treatment" name="treatment">
                             </div>
 
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label for="appointment_date" class="form-label">Date</label>
-                                    <input type="date" class="form-control" id="appointment_date" name="appointment_date" 
-                                           value="<?php echo $appointment['appointment_date']; ?>" required>
+                                    <input type="date" class="form-control" id="appointment_date" name="appointment_date">
                                 </div>
 
                                 <div class="col-md-6 mb-3">
                                     <label for="appointment_time" class="form-label">Time</label>
-                                    <input type="time" class="form-control" id="appointment_time" name="appointment_time" 
-                                           value="<?php echo $appointment['appointment_time']; ?>" required>
+                                    <input type="time" class="form-control" id="appointment_time" name="appointment_time">
                                 </div>
                             </div>
 
