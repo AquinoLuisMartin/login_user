@@ -104,6 +104,7 @@ $result = $stmt->get_result();
                                             <th>Pet Name</th>
                                             <th>Species</th>
                                             <th>Treatment/Service</th>
+                                            <th>Actions</th>
                                         </tr>
                                     </thead>
                                         <tbody>
