@@ -23,7 +23,7 @@ if ($mysqli->connect_error) {
     exit();
 }
 
-// Check if the appointment exists and belongs to the user
+
 $stmt = $mysqli->prepare("SELECT appointment_date FROM appointments WHERE appointment_id = ? AND user_id = ?");
 $stmt->bind_param("ii", $appointment_id, $user_id);
 $stmt->execute();

@@ -129,7 +129,6 @@ $result = $stmt->get_result();
                                                                         data-bs-toggle="modal"
                                                                         data-bs-target="#deleteModal"
                                                                         >
-                                                                        
                                                                     <i class="bi bi-trash me-1"></i>Delete
                                                                 </button>
                                                         </div>
